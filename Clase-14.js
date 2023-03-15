@@ -6,44 +6,41 @@
 /* -------------------------------------------------------------------------- */
 /*           [6] FUNCION: Escuchamos el evento de carga de la página          */
 /* -------------------------------------------------------------------------- */
-window.addEventListener('load', function () {
-    // 👇 Todo lo que desarrollamos dentro, se ejecuta una vez que se carga la página
+window.addEventListener("load", function () {
+  // 👇 Todo lo que desarrollamos dentro, se ejecuta una vez que se carga la página
 
-    // nos traemos la info del storage
-    const user = recuperarDataStorage();
+  // nos traemos la info del storage
+  const user = recuperarDataStorage();
 
-    // utilizamos la funcion para el renderizado
-    renderizarElementos(user);
+  // utilizamos la funcion para el renderizado
+  renderizarElementos(user);
 
-    botonCerrarSesion();
-
-})
+  botonCerrarSesion();
+});
 
 /* -------------------------------------------------------------------------- */
 /*                 [7] FUNCION: Recuperar la info del storage                 */
 /* -------------------------------------------------------------------------- */
 function recuperarDataStorage() {
-    const datosEnJSON = localStorage.getItem('user');
+  const datosEnJSON = localStorage.getItem("user");
 
-    const datosParseados = JSON.parse(datosEnJSON);
+  const datosParseados = JSON.parse(datosEnJSON);
 
-    return datosParseados;
+  return datosParseados;
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                [8] FUNCION: Renderizamos la info en pantalla               */
 /* -------------------------------------------------------------------------- */
 function renderizarElementos(objeto) {
-    // capturamos los nodos
-    const email = document.querySelector('#email');
-    const perfil = document.querySelector('#perfil');
+  // capturamos los nodos
+  const email = document.querySelector("#email");
+  const perfil = document.querySelector("#perfil");
 
-    // pintamos las propiedades del objeto en pantalla
-    email.innerText = objeto.email;
-    perfil.innerText = objeto.rol;
+  // pintamos las propiedades del objeto en pantalla
+  email.innerText = objeto.email;
+  perfil.innerText = objeto.rol;
 }
-
 
 /* ----------------------------- MESA DE TRABAJO ---------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -67,16 +64,26 @@ function renderizarElementos(objeto) {
 // 7- Si el usuario acepta debe borrar todo el storage y redirigirlo a la pantalla de Login.
 
 function botonCerrarSesion() {
-    //    👇 desarrollar la función
-   /// document.querySelector(".user").innerHTML = '';
+  //    👇 desarrollar la función
+  /// document.querySelector(".user").innerHTML = '';
 
-
-  
-      document.querySelector(".user").innerHTML += 
-      `
-          <button>Cerrar sesión</button>
+  document.querySelector(".user").innerHTML += `
+          <button id="cerrar">Cerrar sesión</button>
           `
-  
+
+          const cerrarSesionBtn = document.querySelector("#cerrar");
+
+          cerrarSesionBtn.addEventListener("click", function(){ 
+          
+          
+          if (confirm("¿Seguro desea cerrar sesión?")){
+        localStorage.clear();
+        location.replace("index.html");
+          } });
+         
+
+          }
 
 
-}
+          
+
