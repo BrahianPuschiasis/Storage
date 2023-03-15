@@ -73,6 +73,14 @@ function botonCerrarSesion() {
 
           const cerrarSesionBtn = document.querySelector("#cerrar");
 
+        cerrarSesionBtn.style.padding = '5px 20px';
+        cerrarSesionBtn.style.backgroundColor = 'rgba(255,0,0,0.2)';
+        cerrarSesionBtn.style.color = "red"
+        cerrarSesionBtn.style.border = 0;
+        cerrarSesionBtn.style.margin = 20;
+        cerrarSesionBtn.style.cursor = 'pointer';
+
+
           cerrarSesionBtn.addEventListener("click", function(){ 
           
           
