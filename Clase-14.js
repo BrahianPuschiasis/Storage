@@ -15,6 +15,8 @@ window.addEventListener('load', function () {
     // utilizamos la funcion para el renderizado
     renderizarElementos(user);
 
+    botonCerrarSesion();
+
 })
 
 /* -------------------------------------------------------------------------- */
@@ -66,7 +68,15 @@ function renderizarElementos(objeto) {
 
 function botonCerrarSesion() {
     //    👇 desarrollar la función
+   /// document.querySelector(".user").innerHTML = '';
 
-    
+
+  
+      document.querySelector(".user").innerHTML += 
+      `
+          <button>Cerrar sesión</button>
+          `
+  
+
 
 }
